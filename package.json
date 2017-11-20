@@ -1,0 +1,26 @@
+{
+  "name": "react-native-bacon-square-image",
+  "version": "1.0.0",
+  "description": "react native bacon square image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaymingmobile/react-native-bacon-square-image.git"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react-native-fast-image": "1.0.0"
+  },
+  "keywords": [
+    "react native image placeholder",
+  ],
+  "author": "Tsao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaymingmobile/react-native-bacon-square-image/issues"
+  },
+  "homepage": "https://github.com/kaymingmobile/react-native-bacon-square-image#readme"
+}

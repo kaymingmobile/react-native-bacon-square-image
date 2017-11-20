@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, ActivityIndicator, View, TouchableOpacity } from 'react-native';
+import { Image, ActivityIndicator, View, TouchableWithoutFeedback } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 class SquareImage extends React.Component {
@@ -99,7 +99,7 @@ class SquareImage extends React.Component {
     }
 
     return(
-      <TouchableOpacity disabled={ disabled } activeOpacity={1} style={styles.view} onPress={ onPress }>
+      <TouchableWithoutFeedback style={styles.view} onPress={ onPress }>
           <FastImage
             onError={this.onError.bind(this)}
             onLoad={this.onLoad.bind(this)}
@@ -128,7 +128,7 @@ class SquareImage extends React.Component {
             </Image>
           </View>
           }
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     );
   }
 }

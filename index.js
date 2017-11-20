@@ -99,7 +99,8 @@ class SquareImage extends React.Component {
     }
 
     return(
-      <TouchableWithoutFeedback style={styles.view} onPress={ onPress }>
+      <TouchableWithoutFeedback onPress={ onPress }>
+        <View style={styles.view}>
           <FastImage
             onError={this.onError.bind(this)}
             onLoad={this.onLoad.bind(this)}
@@ -128,6 +129,7 @@ class SquareImage extends React.Component {
             </Image>
           </View>
           }
+        </View>
       </TouchableWithoutFeedback>
     );
   }

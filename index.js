@@ -10,7 +10,7 @@ class SquareImage extends React.Component {
 
   static defaultProps = {
     isShowActivity: true,
-	};
+  };
 
   constructor(props) {
     super(props);
@@ -29,7 +29,13 @@ class SquareImage extends React.Component {
   onLoad(){
     this.setState({
       isLoaded: true
-    });    
+    });   
+  }
+
+  onLoadStart(){
+    this.setState({
+      isLoaded: false
+    });     
   }
 
   render() {
@@ -43,34 +49,8 @@ class SquareImage extends React.Component {
       view: {
         alignItems: 'center', 
       },
-      circle: {
-        width: radius*2,
-        height: radius*2,
-        borderRadius: radius,
-        overflow: 'hidden',
-      },
-      fixCircleClipping: {
-        position: 'absolute',
-        top: -radius,
-        bottom: -radius,
-        right: -radius,
-        left: -radius,
-        borderRadius: radius + radius/2,
-        borderWidth: radius,
-        borderColor: borderColor || 'white',
-      },
-      border: {
-        position: 'absolute',
-        width: radius*2,
-        height: radius*2,
-        borderRadius: radius,
-        borderWidth: circleBorderWidth || 0 ,
-        borderColor: circleColor || 'transparent',
-      },
       backgroundImage: {
-        position: 'relative',
-        width: radius*2,
-        height: radius*2
+        position: 'relative'
       },
       activityIndicator: {
         position: 'absolute',
@@ -85,8 +65,11 @@ class SquareImage extends React.Component {
         position: 'absolute'
       },
       imagePlaceholderStyles: {
-        width: radius*2,
-        height: radius*2
+        width: 100,
+        height: 100,
+        resizeMode: 'contain',
+        justifyContent: 'center',
+        alignItems: 'center'
       },
       viewChildrenStyles: {
         top: 0,
@@ -98,18 +81,19 @@ class SquareImage extends React.Component {
       }
     }
 
+    //FastImage.preload([source])
+
     return(
-      <TouchableWithoutFeedback onPress={ onPress }>
+      <TouchableWithoutFeedback onPress={onPress}>
         <View style={styles.view}>
-          <FastImage
+          <Image
+            //onLoadStart={this.onLoadStart.bind(this)}
             onError={this.onError.bind(this)}
             onLoad={this.onLoad.bind(this)}
             style={[styles.backgroundImage, style]}
             source={source}
             resizeMode={resizeMode}
-            borderRadius={borderRadius}
-          >
-          </FastImage>
+          />
           { !this.state.isLoaded &&
           <View 
             style={styles.viewImageStyles}

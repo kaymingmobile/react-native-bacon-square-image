@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, ActivityIndicator, View, TouchableWithoutFeedback } from 'react-native';
-import FastImage from 'react-native-fast-image';
 
 class SquareImage extends React.Component {
   static propTypes = {
